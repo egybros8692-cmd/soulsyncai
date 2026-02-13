@@ -1,0 +1,203 @@
+<analysis>**original_problem_statement:** 
+The user wants to create an AI-based dating app named SoulSyncAI. The core concept is that a user must interact with a conversational AI for at least a month (or until the AI understands them well) before they can be matched with other users. The AI's purpose is to learn the user's personality, preferences, strengths, and weaknesses to find a perfect match.
+
+**Product Requirements:**
+- **App Name:** SoulSyncAI
+- **UI/UX:** Inspired by the Hinge app, but with a unique SoulSyncAI Style.
+- **Core Feature:** A mandatory AI conversation period to analyze user personality before matching. The AI should act as a friend, initiating conversations (e.g., good morning), knowing the user's location to understand their habits (homebody vs. social), and using microphone access to analyze emotional tone.
+- **Onboarding & Profile:**
+    - Authentication via Apple, Google, and phone number (with SMS code verification).
+    - Collect Date of Birth (MM/DD/YYYY) and display the user's age.
+    - Exact location tracking (with permission) to analyze user habits.
+    - Microphone access for voice and emotion analysis.
+    - Hinge-style profile prompts (e.g., A life goal of mine).
+    - Detailed profile Vitals section (relationship type, intentions, ethnicity, height, religion, etc.).
+- **AI Companion:**
+    - Users should be able to customize their AI companion's appearance (race, hair, body style, etc.).
+    - The app will generate an image of the custom AI to make the interaction feel more realistic.
+- **Monetization (Freemium Model):**
+    - A free trial period (e.g., 10 days) for talking to the AI.
+    - After the trial, users must subscribe (daily, weekly, monthly plans) to continue.
+    - A premium tier for faster AI learning and matching.
+    - A one-time fee to unlock and message a revealed match.
+    - In-app purchases for features like Roses or Super Likes.
+- **Integrations:**
+    - **Payments:** Stripe for credit card payments and standard in-app purchases (Apple/Google).
+    - **SMS:** Twilio for phone number verification.
+    - **LLM:** Conversational AI (e.g., GPT-5.2) for the chat feature.
+    - **Image Generation:** AI image generation for the custom AI companion.
+
+**User's preferred language**: english
+
+**what currently exists?**
+A full-stack application (React frontend, FastAPI backend, MongoDB) named SoulSyncAI has been developed. The core features are implemented, including user onboarding, a multi-step profile creation process, an AI chat interface, and a subscription system.
+
+Key implemented features:
+- **Onboarding:** A Hinge-inspired flow with a landing page, Google authentication, phone number verification (Twilio), DOB input, and permission requests for location/notifications/mic.
+- **Profile:** Users can upload photos, write a bio, and add profile prompts.
+- **AI Companion:** A wizard allows users to customize the appearance of their AI chat partner, and an image is generated based on their selections.
+- **Monetization:** A subscription model using Stripe is integrated. It includes a trial period, after which users are directed to a subscription page.
+- **Backend:** Models and API endpoints for users, profiles, chat, subscriptions, and AI interactions are in place.
+
+**Last working item**:
+    - Last item agent was working: The agent was adding a Vitals section to the user profile, based on Hinge screenshots provided by the user. This includes options for relationship type, dating intention, ethnicity, height, etc. The agent updated the backend  to support these new fields and modified the frontend  to add a new step in the onboarding flow for collecting this information.
+    - Status: IN PROGRESS
+    - Agent Testing Done: N
+    - Which testing method agent to use? backend testing agent
+    - User Testing Done: N
+
+**All Pending/In progress Issue list**:
+  - Issue 1: The newly added Vitals profile section is untested. (Priority: P0)
+
+  Issues Detail:
+  - Issue 1: 
+     - Attempted fixes: The agent has written the necessary code in  and  to implement the feature. However, no testing or verification has been performed since the code was written.
+     - Next debug checklist: 
+        1. Restart the backend server to ensure all changes are loaded.
+        2. Test the new  endpoint via  to ensure it returns the correct data for the vitals.
+        3. Use the  to run a full end-to-end test of the profile setup flow, ensuring the new Vitals step appears correctly, allows for selections, and saves the data to the user's profile.
+        4. Manually inspect the UI for the new step using the screenshot tool to check for any visual bugs.
+     - Why fix this issue and what will be achieved with the fix? This is a user-requested feature to make the profile more comprehensive, which is essential for the future matching algorithm.
+     - Status: IN PROGRESS
+     - Is recurring issue? N
+     - Should Test frontend/backend/both after fix? both
+     - Blocked on other issue: None
+
+**In progress Task List**:
+  - Task 1: Complete and verify the Vitals profile feature. (Priority: P0)
+
+ Task Detail:
+  - Task 1: 
+     - Where to resume: The code edits are complete. The next step is to begin testing as outlined in Issue 1 above. Start by restarting the backend and then proceed with  and .
+     - What will be achieved with this? Users will be able to add detailed Vitals to their profile, fulfilling a key user requirement and enriching the data available for matching.
+     - Status: IN PROGRESS
+     - Should Test frontend/backend/both after fix? both
+     - Blocked on something: None
+
+**Upcoming and Future Tasks**
+Upcoming Tasks:
+- **Implement Apple Sign In (P0):** The user requested Apple Sign In alongside Google and phone auth, but it has not been implemented.
+- **Voice Message Feature (P1):** Add the ability for users to send and receive voice messages in the chat with the AI.
+- **Like on Specific Content (P1):** Implement a Hinge-like feature where users can comment on or like specific photos or profile prompts of their matches.
+- **Premium Rose Feature (P1):** Implement a special like (e.g., a Rose) that premium users can send to stand out.
+
+Future Tasks:
+- **Build Matching Algorithm (P2):** Develop the core logic to match users based on the personality traits and vitals collected by the AI.
+- **Background Location Tracking (P2):** Implement a system to track user location in the background (with permission) to determine if they are a homebody or social.
+- **Voice Tone Analysis (P2):** Integrate a service to analyze the user's voice during voice messages to gain emotional insights.
+- **Push Notification System (P2):** Build a system to send daily check-in notifications (e.g., Good morning) from the AI.
+- **Implement Additional Gender Options (P2):** Add the detailed gender identity and pronoun options from the user-provided screenshots to the profile setup.
+
+**Completed work in this session**
+- Initial full-stack application setup (React/FastAPI/MongoDB).
+- Landing page and basic UI structure.
+- User authentication with Google and phone number verification (via Twilio).
+- Multi-step profile creation wizard ().
+- Hinge-inspired onboarding components (, ).
+- AI Companion Customizer with image generation ().
+- Hinge-style Profile Prompts editor ().
+- Subscription and monetization system with Stripe ().
+- Creation of backend models and API endpoints for all implemented features ().
+
+**Earlier issues found/mentioned but not fixed**
+   - None identified. The agent has been diligent in fixing issues as they arise.
+
+**Known issue recurrence from previous fork**
+  - None. This is the first session.
+
+**Code Architecture**
+
+
+**Key Technical Concepts**
+- **Frontend:** React, Tailwind CSS, shadcn/ui
+- **Backend:** FastAPI, Python
+- **Database:** MongoDB
+- **Integrations:** Stripe (Payments), Twilio (SMS),  for LLM (OpenAI) and Image Generation (Gemini).
+- **Architecture:** Single Page Application (SPA) with a RESTful API backend.
+
+**key DB schema**
+Defined as Pydantic models in :
+- **User:** 
+- **UserProfile:**  (where  is a new sub-document)
+- **AICompanionProfile:** 
+- **Conversation:** 
+- **Message:** 
+- **PersonalityInsights:** 
+
+**changes in tech stack**
+- No fundamental changes to the core stack.
+- Added  for animations on the frontend.
+- Added  and  on the backend.
+
+**All files of reference**
+- : The single backend file containing all models, API logic, and integration code for Stripe, Twilio, and AI. Has been extensively modified.
+- : A large component managing the entire multi-step onboarding flow. Has been heavily modified to add new steps.
+- : Manages application-level state and routing. Updated to include new pages.
+- : New component for creating the AI avatar.
+- : New component for adding Hinge-style prompts.
+- : New page for handling payments.
+- : Updated with Twilio credentials.
+- : Document tracking project requirements and progress.
+
+**Areas that need refactoring**:
+-  has become very large and complex, managing many steps and state. It should be broken down into smaller, more manageable components for each step of the onboarding process to improve maintainability.
+
+**key api endpoints**
+- , : Google OAuth authentication.
+- , : Twilio SMS verification.
+- : CRUD operations for the user profile.
+- : GET endpoint for fetching dynamic options for profile fields (like vitals, interests).
+- : POST endpoint for sending a message to the AI.
+- : POST endpoint to generate the AI companion's image.
+- : POST to create a Stripe payment session.
+- : Health check endpoint.
+
+**Critical Info for New Agent**
+- **Twilio Credentials:** The user provided Twilio credentials (Account SID, Auth Token, Verify Service SID), which have been added to .
+- **Stripe Integration:** Stripe is integrated using a test key available in the environment. Do not ask the user for Stripe keys.
+- **Complex Frontend Component:** Be aware that  contains the logic for the entire multi-step onboarding. Changes to the onboarding flow will likely require modifying this file significantly.
+- **Testing:** The previous agent consistently used the  after each major feature implementation. Continue this practice to ensure stability. The last feature () was not tested.
+
+**documents and test reports created in this job**
+- 
+- 
+- 
+- 
+- 
+
+**Last 10 User Messages and any pending HUMAN messages**
+1. **User (msg 190):** Agreed to add Vitals and instructed the agent to proceed.
+2. **User (msg 180):** Provided more screenshots from Hinge, showing the Vitals section (relationship type, ethnicity, etc.).
+3. **User (msg 179):** use these photos add information.
+4. **Agent (msg 178):** Summarized the completion of the AI Companion and Profile Prompts feature.
+5. **Agent (msg 177):** Finished the task.
+6. **Agent (msg 176):** Updated the PRD.
+7. **Agent (msg 175):** Confirmed all tests passed for the AI companion feature.
+8. **Agent (msg 172-174):** Ran the testing agent and viewed the successful report.
+9. **Agent (msg 171):** Stated the app looks great and is ready for testing.
+10. **Agent (msg 170):** Took a screenshot after implementing the AI companion feature.
+
+**Project Health Check:**
+- **Working:** Core application structure, user authentication (Google, Phone), profile creation, subscription flow (Stripe), AI companion customization, profile prompts.
+- **Broken:** The Vitals feature is in an untested state. The code is written but not verified.
+- **Mocked:** The actual matching algorithm is not implemented. The  is likely a placeholder.
+
+**3rd Party Integrations**
+- **OpenAI GPT-5.2 (Text Generation):** Uses Emergent LLM Key via .
+- **Gemini Nano Banana (Image Generation):** Uses Emergent LLM Key via .
+- **Twilio (SMS Verification):** Requires User API Key (provided by user).
+- **Stripe (Payments):** Requires User API Key (using test key from environment).
+- **Emergent-managed Google Auth:** Integrated for Google Sign-In.
+
+**Testing status**
+- Testing agent used after significant changes: YES
+- Troubleshoot agent used after agent stuck in loop: NO
+- Test files created: None. The testing agent performs its own tests.
+- Known regressions: None.
+
+**Credentials to test flow:**
+Twilio credentials are in . Stripe test keys are in the environment. For user login during testing, the testing agent handles creating test users.
+
+**What agent forgot to execute**
+- The agent wrote the code for the Vitals profile feature but did not restart the server or run any tests (curl, screenshot, or testing agent) to verify its functionality.
+- The user's request for Apple Sign In was acknowledged in the initial plan but has not been implemented in any of the subsequent iterations.</analysis>
